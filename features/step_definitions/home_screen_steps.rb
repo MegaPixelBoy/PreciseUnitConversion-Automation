@@ -13,6 +13,7 @@ When(/^I type "([^"]*)" to target text field$/) do |target|
 end
 
 # ----- Then ----- #
+#
 Then(/^Left unit picker value should be "([^"]*)"$/) do |unit|
   puts("Left unit picker value is #{unit}")
 end
@@ -31,4 +32,18 @@ end
 
 Then(/^I should see result as "([^"]*)"$/) do |result|
   puts("Result is #{result}")
+end
+
+Then(/^I press on favorites icon$/) do
+  find_element(id: "action_add_favorites").click
+end
+
+Then(/^I press on Favorite conversions$/) do
+  text("Favorite conversions").click
+end
+
+# ----- And ----- #
+
+And(/^I verify "([^"]*)" added to Favorite conversions list$/) do |unit_type|
+  text(unit_type)
 end
