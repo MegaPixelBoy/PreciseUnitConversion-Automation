@@ -22,7 +22,6 @@ Feature: Test Home Screen Functionality
     |3     |36    |
     |9     |106   |
 
-  @wip
   Scenario: User able to add current conversion to Favorites list
     Given I land on home screen
     Then I press on favorites icon

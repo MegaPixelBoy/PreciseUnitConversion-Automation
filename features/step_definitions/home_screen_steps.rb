@@ -13,7 +13,7 @@ When(/^I type "([^"]*)" to target text field$/) do |target|
 end
 
 # ----- Then ----- #
-#
+
 Then(/^Left unit picker value should be "([^"]*)"$/) do |unit|
   puts("Left unit picker value is #{unit}")
 end
