@@ -9,7 +9,7 @@ end
 
 # ----- When ----- #
 When(/^I press on menu icon$/) do
-  # content_desc find method
+  # content_desc find method and tap on it
   find_element(accessibility_id: "Open navigation drawer").click
 end
 
