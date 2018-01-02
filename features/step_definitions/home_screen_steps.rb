@@ -9,7 +9,11 @@ When(/^I press on Clear button$/) do
 end
 
 When(/^I type "([^"]*)" to target text field$/) do |target|
-  puts("Target is #{target}")
+  digits = target.split("")
+
+  digits.each do |num|
+    find_element(id: "keypad").find_element(xpath: "//android.widget.Button[@text='#{num}']").click
+  end
 end
 
 When(/^I press on search icon$/) do
@@ -45,7 +49,11 @@ Then(/^Show All button should be (enabled|disabled)$/) do |state|
 end
 
 Then(/^I should see result as "([^"]*)"$/) do |result|
-  puts("Result is #{result}")
+  actual_value = find_element(id: "target_value").text
+
+  if actual_value = !result
+    fail("Expected value is #{result}, actual value is #{actual_value}")
+  end
 end
 
 Then(/^I press on favorites icon$/) do
