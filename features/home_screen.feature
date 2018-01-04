@@ -39,6 +39,7 @@ Feature: Test Home Screen Functionality
     And Left unit picker value should be "Celsius"
     And Right unit picker value should be "Fahrenheit"
 
+  @wip
   Scenario Outline: User able to select values from unit pickers
     Given I land on home screen
     Then I select "<unit_type>" from left unit picker
@@ -49,7 +50,6 @@ Feature: Test Home Screen Functionality
   |Inch     |1     |2.54   |
   |Link     |1     |20.1168|
 
-  @wip
   Scenario: User able to convert values
     Given I land on home screen
     When I press on menu icon
