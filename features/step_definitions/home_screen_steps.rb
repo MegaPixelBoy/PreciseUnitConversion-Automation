@@ -76,7 +76,8 @@ end
 # ----- And ----- #
 
 And(/^I verify "([^"]*)" added to Favorite conversions list$/) do |unit_type|
-  text(unit_type)
+  item_text = find_element(id: "favorites_item_hint").text
+  fail("Cannot find #{unit_type} in Favorite list") if unit_type != item_text
 end
 
 And(/^I type "([^"]*)" in search field$/) do |text|
