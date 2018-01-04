@@ -75,11 +75,15 @@ end
 
 Then(/^I select "([^"]*)" from left unit picker$/) do |value|
   find_elements(id: "select_unit_spinner")[0].click
+  find_in_list(value)
+end
 
-  3.times { Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.2, end_x: 0.5, end_y: 0.8, duration: 600).perform }
-  until exists{ text(value) } do
-    Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.8, end_x: 0.5, end_y: 0.2, duration: 600).perform
-  end
+Then(/^I select "([^"]*)" from right unit picker$/) do |value|
+  find_elements(id: "select_unit_spinner")[1].click
+  find_in_list(value)
+end
+
+Then(/^I select "([^"]*)" from menu$/) do |value|
   text(value).click
 end
 
