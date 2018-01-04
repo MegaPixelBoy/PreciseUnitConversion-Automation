@@ -39,3 +39,9 @@ Feature: Test Home Screen Functionality
     Then I see "Temperature" as a current unit converter
     And Left unit picker value should be "Celsius"
     And Right unit picker value should be "Fahrenheit"
+
+  Scenario: User able to select values from unit pickers
+    Given I land on home screen
+    Then I select "Inch" from left unit picker
+    When I type "1" on application keyboard
+    Then I should see result as "2.54"
