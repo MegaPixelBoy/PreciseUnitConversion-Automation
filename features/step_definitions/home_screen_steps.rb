@@ -8,7 +8,7 @@ When(/^I press on Clear button$/) do
   puts('Clear Button pressed')
 end
 
-When(/^I type "([^"]*)" to target text field$/) do |target|
+When(/^I type "([^"]*)" on application keyboard$/) do |target|
   digits = target.split("")
 
   digits.each do |num|
@@ -41,10 +41,12 @@ Then(/^Right unit picker value should be "([^"]*)"$/) do |unit|
 end
 
 Then(/^Show All button should be (enabled|disabled)$/) do |state|
+  button_state = find_element(id: "btn_show_all").enabled?
+
   if state == 'enabled'
-    puts('Show All button enabled')
+    fail("Expected to be enabled") if button_state != true
   elsif state == 'disabled'
-    puts('Show All button disabled')
+    fail("Expected to be disabled") if button_state != false
   end
 end
 
