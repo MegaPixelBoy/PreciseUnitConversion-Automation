@@ -20,6 +20,10 @@ When(/^I press on search icon$/) do
   find_element(id: "action_search").click
 end
 
+When(/^I press on switch units button$/) do
+  find_element(id: "img_switch").click
+end
+
 # ----- Then ----- #
 
 Then(/^Left unit picker value should be "([^"]*)"$/) do |unit|

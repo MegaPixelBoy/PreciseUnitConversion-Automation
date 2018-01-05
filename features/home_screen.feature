@@ -38,8 +38,7 @@ Feature: Test Home Screen Functionality
     Then I see "Temperature" as a current unit converter
     And Left unit picker value should be "Celsius"
     And Right unit picker value should be "Fahrenheit"
-
-  @wip
+    
   Scenario Outline: User able to select values from unit pickers
     Given I land on home screen
     Then I select "<unit_type>" from left unit picker
@@ -57,3 +56,12 @@ Feature: Test Home Screen Functionality
     Then I select "Cup" from right unit picker
     When I type "1" on application keyboard
     Then I should see result as "15.1416"
+
+  @wip
+  Scenario: User able to switch scenarios
+    Given I land on home screen
+    Then Left unit picker value should be "Foot"
+    And Right unit picker value should be "Centimeter"
+    When I press on switch units button
+    Then Left unit picker value should be "Centimeter"
+    And Right unit picker value should be "Foot"
