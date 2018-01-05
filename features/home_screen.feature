@@ -38,14 +38,15 @@ Feature: Test Home Screen Functionality
     And Left unit picker value should be "Celsius"
     And Right unit picker value should be "Fahrenheit"
 
+  @wip
   Scenario Outline: User able to select values from unit pickers
     Then I select "<unit_type>" from left unit picker
     When I type "<amount>" on application keyboard
     Then I should see result as "<result>"
   Examples:
   |unit_type|amount|result|
-  |Inch     |1     |2.54   |
-  |Link     |1     |20.1168|
+  |Inch1     |1     |2.54   |
+  |Link1     |1     |20.1168|
 
   Scenario: User able to convert values
     When I press on menu icon
@@ -54,7 +55,6 @@ Feature: Test Home Screen Functionality
     When I type "1" on application keyboard
     Then I should see result as "15.1416"
 
-  @wip
   Scenario: User able to switch scenarios
     Then Left unit picker value should be "Foot"
     And Right unit picker value should be "Centimeter"

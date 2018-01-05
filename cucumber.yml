@@ -9,3 +9,5 @@ main: -t @main_menu
 any: -t @custom_conversions, @home_screen
 # Run tests that have both tags
 strict: -t @custom_conversions -t @home_screen
+
+wip: -t @wip --format html --out report.html --format pretty
