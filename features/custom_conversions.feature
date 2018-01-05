@@ -1,7 +1,10 @@
+@custom_conversions
 Feature: User able to create and manage custom conversions
 
-  Scenario: User able to create new conversion
+  Background:
     Given I land on home screen
+
+  Scenario: User able to create new conversion
     Then I press on menu icon
     Then I press on My conversions button
     Then I press on Create your first conversion button

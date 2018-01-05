@@ -1,18 +1,19 @@
+@home_screen
 Feature: Test Home Screen Functionality
 
-  Scenario: Default values on Home Screen are Foot and Centimeter
+  Background:
     Given I land on home screen
+
+  Scenario: Default values on Home Screen are Foot and Centimeter
     Then Left unit picker value should be "Foot"
     And Right unit picker value should be "Centimeter"
 
   Scenario: Show All button should be enable at launch
-    Given I land on home screen
     Then Show All button should be disabled
     When I type "1" on application keyboard
     Then Show All button should be enabled
 
   Scenario Outline: Verify default conversion
-    Given I land on home screen
     When I type "<target>" on application keyboard
     Then I should see result as "<result>"
   Examples:
@@ -24,23 +25,20 @@ Feature: Test Home Screen Functionality
     |10    |304.8    |
 
   Scenario: User able to add current conversion to Favorites list
-    Given I land on home screen
     Then I press on favorites icon
     When I press on menu icon
     Then I press on Favorite conversions
     And I verify "Length" added to Favorite conversions list
 
   Scenario: User able to search by existing Conversion type
-    Given I land on home screen
     When I press on search icon
     And I type "Temperature" in search field
     And I press return button on soft keyboard
     Then I see "Temperature" as a current unit converter
     And Left unit picker value should be "Celsius"
     And Right unit picker value should be "Fahrenheit"
-    
+
   Scenario Outline: User able to select values from unit pickers
-    Given I land on home screen
     Then I select "<unit_type>" from left unit picker
     When I type "<amount>" on application keyboard
     Then I should see result as "<result>"
@@ -50,7 +48,6 @@ Feature: Test Home Screen Functionality
   |Link     |1     |20.1168|
 
   Scenario: User able to convert values
-    Given I land on home screen
     When I press on menu icon
     Then I select "Volume" from menu
     Then I select "Cup" from right unit picker
@@ -59,7 +56,6 @@ Feature: Test Home Screen Functionality
 
   @wip
   Scenario: User able to switch scenarios
-    Given I land on home screen
     Then Left unit picker value should be "Foot"
     And Right unit picker value should be "Centimeter"
     When I press on switch units button
