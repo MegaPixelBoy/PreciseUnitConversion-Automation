@@ -38,7 +38,6 @@ Feature: Test Home Screen Functionality
     And Left unit picker value should be "Celsius"
     And Right unit picker value should be "Fahrenheit"
 
-  @wip
   Scenario Outline: User able to select values from unit pickers
     Then I select "<unit_type>" from left unit picker
     When I type "<amount>" on application keyboard
@@ -61,3 +60,18 @@ Feature: Test Home Screen Functionality
     When I press on switch units button
     Then Left unit picker value should be "Centimeter"
     And Right unit picker value should be "Foot"
+
+  @wip
+  Scenario: User able to cleanup conversion history
+    When I press on menu icon
+    Then I select "History" from menu
+    Then I see "History" as a current unit converter
+    Then I should see text "No history right now"
+    When I press on menu icon
+    Then I select "Length" from menu
+    When I type "1" on application keyboard
+    When I press on menu icon
+    Then I select "History" from menu
+    And I verify that 1st result in history list is "Length"
+    When I press delete from history at 1st row
+    Then I should see text "No history right now"

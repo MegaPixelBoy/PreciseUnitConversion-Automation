@@ -24,6 +24,12 @@ When(/^I press on switch units button$/) do
   find_element(id: "img_switch").click
 end
 
+When(/^I press delete from history at (\d+)st row$/) do |index|
+  parent_element = find_element(id: "history_conversion_list")
+  array_of_elements = parent_element.find_elements(id: "history_single_line")
+  array_of_elements[index.to_i - 1].find_element(id: "deleteIcon").click
+end
+
 # ----- Then ----- #
 
 Then(/^Left unit picker value should be "([^"]*)"$/) do |unit|
@@ -91,6 +97,10 @@ Then(/^I select "([^"]*)" from menu$/) do |value|
   text(value).click
 end
 
+Then(/^I should see text "([^"]*)"$/) do |value|
+  text(value)
+end
+
 # ----- And ----- #
 
 And(/^I verify "([^"]*)" added to Favorite conversions list$/) do |unit_type|
@@ -106,4 +116,13 @@ end
 And(/^I press return button on soft keyboard$/) do
   # Tap in a part of the screen
   Appium::TouchAction.new.tap(x:0.99, y:0.99, count:1).perform
+end
+
+And(/^I verify that (\d+)(?:st|nd|rd|th)? result in history list is "([^"]*)"$/) do |index, value|
+  parent_element = find_element(id: "history_conversion_list")
+  array_of_elements = parent_element.find_elements(id: "history_single_line")
+  actual_text = array_of_elements[index.to_i - 1].find_element(id: "history_item_hint").text
+  if actual_text != value
+    fail("Expected text is #{value}, actual text is #{actual_text}")
+  end
 end
