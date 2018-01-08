@@ -1,4 +1,5 @@
 custom: -t @custom_conversions
+gestures: -t @gestures
 home: -t @home_screen
 main: -t @main_menu
 

@@ -34,7 +34,7 @@ Feature: Test Home Screen Functionality
     When I press on search icon
     And I type "Temperature" in search field
     And I press return button on soft keyboard
-    Then I see "Temperature" as a current unit converter
+    Then I see "Temperature" as a header name
     And Left unit picker value should be "Celsius"
     And Right unit picker value should be "Fahrenheit"
 
@@ -61,11 +61,10 @@ Feature: Test Home Screen Functionality
     Then Left unit picker value should be "Centimeter"
     And Right unit picker value should be "Foot"
 
-  @wip
   Scenario: User able to cleanup conversion history
     When I press on menu icon
     Then I select "History" from menu
-    Then I see "History" as a current unit converter
+    Then I see "History" as a header name
     Then I should see text "No history right now"
     When I press on menu icon
     Then I select "Length" from menu

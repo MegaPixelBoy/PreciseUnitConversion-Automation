@@ -78,7 +78,7 @@ Then(/^I press on Favorite conversions$/) do
   text("Favorite conversions").click
 end
 
-Then(/^I see "([^"]*)" as a current unit converter$/) do |current_unit|
+Then(/^I see "([^"]*)" as a header name$/) do |current_unit|
   # Locate element inside parent
   find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='#{current_unit}']")
 end
